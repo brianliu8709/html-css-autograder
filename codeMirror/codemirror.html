@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <link rel="icon" type="image/x-icon" href="red-blue-loop.ico">
+    <title>Code Mirror</title>
+    <link rel="stylesheet" href="style.css">
+    <script src='script.js'></script>
+    <link rel="stylesheet" href="codemirror.css">
+    <script src="codemirror.js"></script>
+    <script src="htmlmixed.js"></script>
+    <script src="css.js"></script>
+    <script src="javascript.js"></script>
+    <script src="xml.js"></script>
+</head>
+<body>
+    <div class="code-area">
+        <textarea id="htmlCode" placeholder="HTML Code"></textarea>
+        <hr>
+        <textarea id="cssCode" placeholder="CSS Code"></textarea>
+    </div>
+    <div class="preview-area">
+        <iframe id="preview-window"></iframe>
+    </div>
+    <script>
+        var htmlEditor = CodeMirror.fromTextArea(document.getElementById("htmlCode"), {
+            mode: "htmlmixed"
+        })
+        var cssEditor = CodeMirror.fromTextArea(document.getElementById("cssCode"), {
+            mode: "css"
+        })
+        function showPreview() {
+            var htmlCode = htmlEditor.getValue();
+            var cssCode = "<style>" + cssEditor.getValue() + "</style>";
+            var frame = document.getElementById("preview-window").contentWindow.document;
+            frame.open();
+            frame.write(htmlCode+cssCode);
+            frame.close();
+        }
+        htmlEditor.on("change",function(){showPreview()});
+        cssEditor.on("change",function(){showPreview()});
+    </script>
+</body>
+</html> 

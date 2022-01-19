@@ -1,0 +1,32 @@
+<!--
+TODO LIST
+- add styling
+- add a main page (index.html should not be a lesson)
+- implement a system where the website shows which criteria are fulfilled and which are not fulfilled (like this https://docs.google.com/document/d/1WVrvTrlTNPP3lWGW4quFRVUzOSLiW7swCgiLuV4mg-I/edit?usp=sharing)
+- add lessons
+- Google authentication ?
+- database ?
+-->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>replit</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+      <div class="code-area">
+      <textarea id="htmlCode" placeholder="HTML Code"></textarea>
+      <textarea id="cssCode" placeholder="CSS Code"></textarea>
+    </div>
+    <div class="preview-area">
+      <iframe id="preview-window"></iframe>
+    </div>
+    <a href="html/mondrian1.html">mondrian 1</a>
+    <a href="codeMirror/codemirror.html">CodeMirror</a>
+    <!-- <script type="module" src="modules/module.js"></script> -->
+    <script type="module" src="modules/showPreview.js"></script>
+  </body>
+</html>
