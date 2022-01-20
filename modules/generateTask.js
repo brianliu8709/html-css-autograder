@@ -15,6 +15,7 @@ const generateTask = ({htmlText, cssText, instructions},
 
 //sets the value of the HTML box, used to give starter code
 const setHTML = text => document.getElementById("htmlCode").value = text
+const setHTML = text => document.getElementById("htmlEditor").value = text
 
 //sets the value of the CSS box, used to give starter code
 const setCSS = text => document.getElementById("cssCode").value = text

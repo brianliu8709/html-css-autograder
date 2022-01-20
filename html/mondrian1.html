@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width">
     <title>replit</title>
     <link href="../style.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="../codeMirror/codeMirror.css">
   </head>
   <body>
     <div class="code-area">
@@ -19,7 +20,32 @@
       <ul id="criteria"></ul>
     </div>
     <button id="taskChecker">Check your task:</button>
-    <script type="module" src="/modules/showPreview.js"></script>
     <script type="module" src="/js/mondrian1.js"></script>
+    <script src="../codemirror/codemirror.js"></script>
+    <script src="../htmlMixed.js"></script>
+    <script src="../css.js"></script>
+    <script src="../javascript.js"></script>
+    <script src="../xml.js"></script>
+    <!-- <script type="module" src="/modules/showPreview.js"></script> -->
+
+  <script>
+        var htmlEditor = CodeMirror.fromTextArea(document.getElementById("htmlCode"), {
+            mode: "htmlmixed"
+        })
+        var cssEditor = CodeMirror.fromTextArea(document.getElementById("cssCode"), {
+            mode: "css"
+        })
+        function showPreview() {
+            var htmlCode = htmlEditor.getValue();
+            var cssCode = "<style>" + cssEditor.getValue() + "</style>";
+            var frame = document.getElementById("preview-window").contentWindow.document;
+            frame.open();
+            frame.write(htmlCode+cssCode);
+            frame.close();
+        }
+        htmlEditor.on("change",function(){showPreview()});
+        cssEditor.on("change",function(){showPreview()});
+    </script>
+
   </body>
 </html>
